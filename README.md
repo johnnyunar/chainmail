@@ -61,8 +61,6 @@ TODO
 
 TODO
 
-<!-- USAGE -->
-
 ## Usage
 
 TODO

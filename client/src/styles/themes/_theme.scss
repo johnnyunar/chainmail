@@ -1,0 +1,35 @@
+.alert-danger {
+  color: #C26F5E;
+}
+
+.color-danger {
+  color: $red-color;
+}
+
+.bg-success {
+  background: $green-color;
+}
+
+.bg-warning {
+  background: $orange-color;
+}
+
+.bg-danger {
+  background: $red-color;
+}
+
+.bg-blur {
+  background: hsla(172, 85%, 74%, 1);
+  background: linear-gradient(45deg, hsla(172, 85%, 74%, 1) 0%, hsla(225, 60%, 67%, 1) 42%, hsla(319, 74%, 64%, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#83f5e5", endColorstr="#7A93DE", GradientType=1);
+}
+
+.text-glow {
+  text-shadow: 0 0 80px rgb(192 219 255 / 75%), 0 0 32px rgb(65 120 255 / 24%);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #30CFD0, #c43ad6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

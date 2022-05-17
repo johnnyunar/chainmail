@@ -1,0 +1,20 @@
+.Greeter {
+  input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+}
+
+.update-greetings-button {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 15px;
+  transition: 400ms;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}

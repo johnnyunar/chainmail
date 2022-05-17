@@ -1,0 +1,8 @@
+.navbar {
+  background-color: transparent;
+  transition: background-color 400ms;
+}
+
+.navbar.active{
+  background-color: $primary-color;
+}

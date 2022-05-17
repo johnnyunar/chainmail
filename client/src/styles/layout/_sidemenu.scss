@@ -1,0 +1,30 @@
+.sidemenu {
+  width: 200px;
+  background: black;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  font-size: 15px;
+  padding: 20px;
+  z-index: 1000;
+
+  ul {
+    padding: 0;
+  }
+}
+
+.sidemenu-item {
+  margin-bottom: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.sidemenu-logo {
+  display: block;
+  margin: 0 auto;
+}

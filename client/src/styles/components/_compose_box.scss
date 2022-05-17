@@ -1,0 +1,38 @@
+.ComposeBox {
+  input {
+    width: 100%;
+    min-width: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    min-width: 300px;
+    height: 500px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+  }
+
+  button {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 100%;
+    background-color: $secondary-color;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: 400ms;
+
+    &:hover {
+      background-color: white;
+      color: $primary-color;
+    }
+  }
+}

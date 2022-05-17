@@ -1,0 +1,19 @@
+#holder {
+  z-index: 10;
+  width: 100%;
+  position: fixed;
+  color: white;
+}
+
+.notification {
+  background: $red-color;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+#closeNotification {
+  float: right;
+  padding-right: 10px;
+  cursor: pointer;
+}

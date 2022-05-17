@@ -1,0 +1,22 @@
+.hero {
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  width: 400px;
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h1, h3 {
+    text-align: center;
+  }
+}
+
+.hero-image {
+  width: 400px;
+  animation: bounce-slow 3s ease-in-out infinite;
+}

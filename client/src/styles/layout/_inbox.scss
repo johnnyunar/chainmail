@@ -1,0 +1,23 @@
+.inbox {
+  width: 250px;
+  height: 100vh;
+  flex-shrink: 0;
+  padding: 20px;
+  font-size: 14px;
+  background-color: $secondary-color;
+
+  ul {
+    padding: 0;
+    cursor: pointer;
+  }
+
+  li {
+    transition: 400ms;
+    padding: 10px;
+
+    &:hover {
+      background-color: #ececec;
+      color: black;
+    }
+  }
+}

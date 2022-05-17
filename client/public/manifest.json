@@ -1,0 +1,20 @@
+{
+  "short_name": "Chainmail",
+  "name": "Chainmail - The Blockchain Email Solution",
+  "icons": [
+    {
+      "src": "armor250.png",
+      "type": "image/png",
+      "sizes": "250x250"
+    },
+     {
+      "src": "armor500.png",
+      "type": "image/png",
+      "sizes": "500x500"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

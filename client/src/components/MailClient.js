@@ -31,15 +31,14 @@ const MailClient = () => {
     const currentView = useCurrentView();
 
 
-    useEffect(() => async () => {
+    useEffect(() => {
         let interval;
         if (!currentAccount) {
-            await checkWalletIsConnected();
+            checkWalletIsConnected().then(getWalletInfo().then(loadInboxMessages()));
         }
         if (autoRefresh) {
             interval = setInterval(() => {
-                checkWalletIsConnected();
-                getWalletInfo().then(loadInboxMessages());
+                checkWalletIsConnected().then(getWalletInfo().then(loadInboxMessages()));
             }, 5000);
         }
 

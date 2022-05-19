@@ -4,7 +4,6 @@ import {faBars, faEnvelope, faHandPeace, faPaperPlane, faPencil, faUser} from "@
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import MailClient from "./MailClient";
-import Header from "./Header";
 
 library.add(faBars, faUser, faEnvelope, faPaperPlane, faHandPeace, faPencil);
 

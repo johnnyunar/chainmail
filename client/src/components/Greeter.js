@@ -3,7 +3,7 @@ import './App.css';
 import {useEffect, useState} from "react";
 import {ethers} from "ethers";
 import {greeterAbi, greeterAddress} from "../utils/constants";
-import {setGreeting, useAutoRefresh, useBalance, useBlock, useGreeting} from "../utils/Store";
+import {useAutoRefresh, useBalance, useBlock} from "../utils/Store";
 
 
 /**
@@ -18,12 +18,12 @@ export const greetMe = async () => {
 }
 
 const Greeter = () => {
+    const [greeting, setGreeting] = useState("");
     const [newGreetings, setNewGreetings] = useState("");
 
     const autoRefresh = useAutoRefresh();
     const block = useBlock();
     const balance = useBalance();
-    const greetings = useGreeting();
 
     useEffect(() => async () => {
         let interval;
@@ -34,7 +34,7 @@ const Greeter = () => {
             console.log("updated");
         }
 
-        if (!greetings) {
+        if (!greeting) {
             await updateGreeting();
         }
 
@@ -45,15 +45,15 @@ const Greeter = () => {
         }
 
         return () => clearInterval(interval);
-    }, [autoRefresh, greetings])
+    }, [autoRefresh, greeting])
 
     const updateGreets = async () => {
-        document.getElementById("greetingsInput").value = "";
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const greeterContract = new ethers.Contract(greeterAddress, greeterAbi, provider);
         const contractWithSigner = greeterContract.connect(await provider.getSigner());
 
-        await contractWithSigner.setGreeting(newGreetings);
+        await contractWithSigner.setGreeting(newGreetings)
+            .then(document.getElementById("greetingsInput").value = "");
     }
 
     return (
@@ -61,7 +61,7 @@ const Greeter = () => {
             <h1>Set a greeting for others here!</h1>
             <h2>
                 Current Greetings:&nbsp;
-                <b>{greetings}</b>
+                <b>{greeting}</b>
             </h2>
             <p>Your ETH Balance is: <b>{balance}</b></p>
             <p>Current ETH Block is: {block}</p>

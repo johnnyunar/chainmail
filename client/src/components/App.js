@@ -2,7 +2,7 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import Home from "./Home";
 
-import {useBalance, useCurrentAccount, useInboxMessages} from "../utils/Store";
+import {useAutoRefresh, useBalance, useCurrentAccount, useInboxMessages} from "../utils/Store";
 import {checkWalletIsConnected} from "../utils/wallet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars, faEnvelope, faHandPeace, faPaperPlane, faPencil, faUser} from "@fortawesome/free-solid-svg-icons";
@@ -20,12 +20,19 @@ const App = () => {
     const currentAccount = useCurrentAccount();
     const balance = useBalance();
     const inboxMessages = useInboxMessages();
+    const autoRefresh = useAutoRefresh();
     const [currentView, setCurrentView] = useState("inbox");
 
-
     useEffect(() => async () => {
-        await checkWalletIsConnected();
-    }, []);
+        let interval;
+        if (autoRefresh) {
+            interval = setInterval(() => {
+                checkWalletIsConnected();
+            }, 5000);
+        }
+
+        return () => clearInterval(interval);
+    }, [autoRefresh, currentAccount])
 
 
     if (!currentAccount) {

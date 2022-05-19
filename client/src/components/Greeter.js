@@ -25,17 +25,16 @@ const Greeter = () => {
     const block = useBlock();
     const balance = useBalance();
 
-    useEffect(() => async () => {
+    useEffect(() => {
         let interval;
 
-        const updateGreeting = async () => {
+        async function updateGreeting() {
             const greetMsg = await greetMe();
             setGreeting(greetMsg);
-            console.log("updated");
         }
 
         if (!greeting) {
-            await updateGreeting();
+            updateGreeting();
         }
 
         if (autoRefresh) {

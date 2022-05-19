@@ -35,9 +35,8 @@ const MailClient = () => {
     useEffect(() => {
         let interval;
         if (!currentAccount) {
-            checkWalletIsConnected().then(getWalletInfo().then(loadInboxMessages()));
-        }
-        if (autoRefresh) {
+            checkWalletIsConnected();
+        } else if (autoRefresh) {
             interval = setInterval(() => {
                 checkWalletIsConnected().then(getWalletInfo().then(loadInboxMessages()));
             }, 5000);

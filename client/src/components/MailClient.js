@@ -20,6 +20,7 @@ import MessageBox from "./MessageBox";
 import ComposeBox from "./ComposeBox";
 import ConnectWalletButton from "./ConnectWalletButton";
 import InboxList from "./InboxList";
+import Header from "./Header";
 
 library.add(faBars, faUser, faEnvelope, faPaperPlane, faHandPeace, faPencil);
 
@@ -47,9 +48,12 @@ const MailClient = () => {
 
     if (!currentAccount) {
         return (
-            <div className="App connect-wallet">
-                <ConnectWalletButton/>
-            </div>
+            <>
+                <Header/>
+                <div className="App connect-wallet">
+                    <ConnectWalletButton/>
+                </div>
+            </>
         )
     }
     return (

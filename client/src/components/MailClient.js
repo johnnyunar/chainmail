@@ -19,7 +19,7 @@ import Greeter from "./Greeter";
 import MessageBox from "./MessageBox";
 import ComposeBox from "./ComposeBox";
 import ConnectWalletButton from "./ConnectWalletButton";
-import InboxList from "./InboxRow";
+import InboxList from "./InboxList";
 
 library.add(faBars, faUser, faEnvelope, faPaperPlane, faHandPeace, faPencil);
 
@@ -63,16 +63,20 @@ const MailClient = () => {
                             &nbsp;{currentAccount.slice(0, 5)}...{currentAccount.slice(35)}
                         </li>
                     </Tooltip>
-                    <li onClick={() => setCurrentView("inbox")} className="sidemenu-item">
+                    <li onClick={() => setCurrentView("inbox")}
+                        className={currentView === "inbox" ? "sidemenu-item active" : "sidemenu-item"}>
                         <FontAwesomeIcon icon="envelope"/>&nbsp;Inbox
                     </li>
-                    <li onClick={() => setCurrentView("sent")} className="sidemenu-item">
+                    <li onClick={() => setCurrentView("sent")}
+                        className={currentView === "sent" ? "sidemenu-item active" : "sidemenu-item"}>
                         <FontAwesomeIcon icon="paper-plane"/>&nbsp;Sent (soon)
                     </li>
-                    <li onClick={() => setCurrentView("compose")} className="sidemenu-item">
+                    <li onClick={() => setCurrentView("compose")}
+                        className={currentView === "compose" ? "sidemenu-item active" : "sidemenu-item"}>
                         <FontAwesomeIcon icon="pencil"/>&nbsp;Compose
                     </li>
-                    <li onClick={() => setCurrentView("greetings")} className="sidemenu-item">
+                    <li onClick={() => setCurrentView("greetings")}
+                        className={currentView === "greetings" ? "sidemenu-item active" : "sidemenu-item"}>
                         <FontAwesomeIcon icon="hand-peace"/>&nbsp;Greetings
                     </li>
                 </ul>

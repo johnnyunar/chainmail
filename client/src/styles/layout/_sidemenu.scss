@@ -32,6 +32,10 @@
   }
 }
 
+.sidemenu-item.active {
+  @include active-list-item;
+}
+
 .sidemenu-logo {
   display: block;
   margin: 0 auto;

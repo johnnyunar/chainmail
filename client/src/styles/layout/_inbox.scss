@@ -13,12 +13,17 @@
 
   li {
     transition: 400ms;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
+    margin-bottom: 5px;
 
     &:hover {
       background-color: #ececec;
       color: black;
     }
+  }
+
+  li.active {
+    @include active-list-item;
   }
 }

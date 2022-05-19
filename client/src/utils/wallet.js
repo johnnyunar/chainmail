@@ -54,7 +54,6 @@ export const checkWalletIsConnected = async () => {
         } catch (e) {
             if (getCurrentAccount()) {
                 setCurrentAccount("");
-                window.location.reload();
             }
 
         }

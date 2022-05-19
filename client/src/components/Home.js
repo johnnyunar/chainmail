@@ -13,7 +13,7 @@ function Home() {
                     <img className="hero-image" src={armor3d} alt="Chainmail Armor"/>
                     <h1>Chainmail</h1>
                     <h3>The Web3 mailing solution you have been waiting for.</h3>
-                    {ConnectWalletButton()}
+                    <ConnectWalletButton/>
                 </div>
             </section>
             <section id="about" className="about">

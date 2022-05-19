@@ -1,17 +1,10 @@
-import {
-    getCurrentAccount,
-    setBalance,
-    setBlock,
-    setCurrentAccount,
-    setInboxMessages,
-    setProvider,
-    setSentMessages
-} from "./Store";
+import {getCurrentAccount, setBalance, setBlock, setCurrentAccount, setInboxMessages, setSentMessages} from "./Store";
 import {ethers} from "ethers";
 import {databaseAbi, databaseAddress} from "./constants";
 
 
-const loadInboxMessages = async (provider) => {
+export const loadInboxMessages = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
     const databaseContract = new ethers.Contract(databaseAddress, databaseAbi, provider);
     let signer = await provider.getSigner();
     const contractWithSigner = databaseContract.connect(signer);
@@ -31,8 +24,8 @@ const loadSentMessages = async (provider) => {
     return messages;
 }
 
-export const getWalletInfo = async (provider) => {
-    setProvider(provider);
+export const getWalletInfo = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
     const accounts = await provider.send("eth_requestAccounts", []);
     const balance = await provider.getBalance(accounts[0]);
     const balanceInEther = ethers.utils.formatEther(balance);
@@ -42,7 +35,6 @@ export const getWalletInfo = async (provider) => {
     setBalance(balanceInEther);
 
     setCurrentAccount(accounts[0]);
-    console.log("Found an account! ", accounts[0]);
 
     await loadInboxMessages(provider);
 }
@@ -54,7 +46,6 @@ export const checkWalletIsConnected = async () => {
         alert("Make sure you have MetaMask installed!");
         return;
     } else {
-        console.log("Wallet Exists! We are ready to go!");
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         try {
@@ -68,19 +59,5 @@ export const checkWalletIsConnected = async () => {
 
         }
 
-    }
-}
-
-export const connectWalletHandler = async () => {
-    const {ethereum} = window;
-    if (!ethereum) {
-        alert("Please Install MetaMask!")
-    }
-
-    try {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        await getWalletInfo(provider);
-    } catch (err) {
-        console.log(err)
     }
 }

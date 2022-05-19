@@ -1,20 +1,9 @@
 import './App.css';
-import logo from "../assets/armor250.png";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {useEffect, useState} from "react";
 import {ethers} from "ethers";
 import {greeterAbi, greeterAddress} from "../utils/constants";
-import {checkWalletIsConnected} from "../utils/wallet";
-import {
-    setGreeting,
-    useAutoRefresh,
-    useBalance,
-    useBlock,
-    useCurrentAccount,
-    useGreeting,
-    useProvider
-} from "../utils/Store";
+import {setGreeting, useAutoRefresh, useBalance, useBlock, useGreeting} from "../utils/Store";
 
 
 /**
@@ -32,7 +21,6 @@ const Greeter = () => {
     const [newGreetings, setNewGreetings] = useState("");
 
     const autoRefresh = useAutoRefresh();
-    const provider = useProvider();
     const block = useBlock();
     const balance = useBalance();
     const greetings = useGreeting();
@@ -61,6 +49,7 @@ const Greeter = () => {
 
     const updateGreets = async () => {
         document.getElementById("greetingsInput").value = "";
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
         const greeterContract = new ethers.Contract(greeterAddress, greeterAbi, provider);
         const contractWithSigner = greeterContract.connect(await provider.getSigner());
 

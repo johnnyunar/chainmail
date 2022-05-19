@@ -1,6 +1,5 @@
 import createStore from "react-hstore";
 
-export const [useProvider, setProvider, getProvider] = createStore(0);
 export const [useCurrentAccount, setCurrentAccount, getCurrentAccount] = createStore(0);
 export const [useBlock, setBlock, getBlock] = createStore(0);
 export const [useBalance, setBalance, getBalance] = createStore(0);

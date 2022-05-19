@@ -3,6 +3,7 @@ import logo from "../assets/armor250.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {useEffect, useState} from "react";
+import {Link, Outlet} from "react-router-dom";
 
 
 /**
@@ -32,26 +33,22 @@ const Header = () => {
 
 
     return (
-        <div className="holder" id="holder">
-            <nav className={navbarActive ? "navbar active" : "navbar"} role="navigation">
+        <>
+            <div className="holder" id="holder">
+                <nav className={navbarActive ? "navbar active" : "navbar"} role="navigation">
                 <span className="navbar-toggle" id="js-navbar-toggle">
                     <FontAwesomeIcon icon="bars"/>
                 </span>
-                <a href="/">
-                    <img className="logo" src={logo} alt="Chainmail Logo"/>
-                </a>
-                <ul className="main-nav" id="js-menu">
-                    <li><a href="/" className="nav-links home">HOME</a></li>
-                    <li><a href="/#about" className="nav-links">ABOUT</a></li>
-                    <li>
-                        <a href="/" className="nav-links" title="{% trans 'Account' %}">
-                            <FontAwesomeIcon icon="user"/>
-                        </a>
-                    </li>
+                    <a href="/">
+                        <img className="logo" src={logo} alt="Chainmail Logo"/>
+                    </a>
+                    <ul className="main-nav" id="js-menu">
+                    </ul>
+                </nav>
+            </div>
+            <Outlet/>
+        </>
 
-                </ul>
-            </nav>
-        </div>
     );
 }
 
